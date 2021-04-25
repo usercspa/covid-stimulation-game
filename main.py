@@ -11,7 +11,7 @@ WIDTH = 800
 HEIGHT = 600
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Cvoid stimulation game")
+pygame.display.set_caption("Covid stimulation game")
 clock = pygame.time.Clock()
 
 #colors
@@ -44,7 +44,7 @@ def game_ending():
     pygame.time.delay(500)
     screen.blit(crashed,(0,0))
     pygame.display.update()
-    pygame.time.delay(3000)
+    pygame.time.delay(1000)
     
   
 #obstacles
@@ -90,9 +90,9 @@ def game_loop():
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    x_change = -5
+                    x_change = -10
                 if event.key == pygame.K_RIGHT:
-                    x_change = 5
+                    x_change = 10
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
