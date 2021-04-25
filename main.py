@@ -87,7 +87,9 @@ def risk_alg(risk_chance):
       caught = random.randrange(0,100)
       if caught <= risk_chance:
         game_ending()
-    elif risk_chance => 100:
+      elif caught > risk_chance:
+        break
+    elif risk_chance >= 100:
       game_ending()
 
 #risk text
