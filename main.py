@@ -147,7 +147,7 @@ def game_loop():
 
         if x > WIDTH - player_width or x < 0:
             #game_ending()
-            risk_chance = risk_chance + random.randrange(5,20)
+            risk_chance = risk_chance + random.randrange(5,15)
             risk_alg(risk_chance)
 
         if ob_starty > HEIGHT:
@@ -165,7 +165,7 @@ def game_loop():
                 
           
               #game_ending()
-              risk_chance = risk_chance + random.randrange(5,20)
+              risk_chance = risk_chance + random.randrange(5,15)
               risk_alg(risk_chance)
 
         
