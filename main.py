@@ -83,19 +83,17 @@ def obstacle_dodged(count):
 
 #risk algorithm
 def risk_alg(risk_chance):
-    while risk_chance < 100:
+    if risk_chance < 100:
       caught = random.randrange(0,100)
       if caught <= risk_chance:
         game_ending()
+    elif risk_chance => 100:
+      game_ending()
 
-   """" File "main.py", line 86, in risk_alg
-    while risk < 100:
-TypeError: '<' not supported between instances of 'pygame.Surface' and 'int'
-"""
 #risk text
 def risk_text(risk_chance):
     font = pygame.font.SysFont(None, 25)
-    text = font.render("Risk: "+str(risk_chance) + "%", True, red)
+    text = font.render("Risk: "+str(risk_chance) + "%", True, black)
     screen.blit(text,(550,50))
 
      
