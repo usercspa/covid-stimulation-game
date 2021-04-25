@@ -30,6 +30,7 @@ risk = pygame.image.load("risk.png")
 rock = pygame.image.load("rock.png")
 background_image = pygame.image.load("street.png").convert()
 
+
 #player position 
 def player(x,y):
   screen.blit(human, (x, y))
@@ -49,9 +50,24 @@ def game_ending():
     
   
 #obstacles
-def obstacles(obx, oby, obw, obh, color):
-    pygame.draw.rect(screen, color, [obx, oby, obw, obh])     
-
+def obstacles(ob_startx, ob_starty, obs):
+    if obs==0:
+      ob_pic=pygame.image.load("pair1.png")
+    elif obs==1:
+      ob_pic=pygame.image.load("pair2.png")
+    elif obs==2:
+      ob_pic=pygame.image.load("pair1-1.png")
+    elif obs==3:
+      ob_pic=pygame.image.load("pair1-2.png")
+    elif obs==4:
+      ob_pic=pygame.image.load("pair1-3.png")
+    elif obs==5:
+      ob_pic=pygame.image.load("pair2-1.png")
+    elif obs==6:
+      ob_pic=pygame.image.load("pair2-2.png")  
+    elif obs==7:
+      ob_pic=pygame.image.load("pair2-3.png") 
+    screen.blit(ob_pic, (ob_startx, ob_starty))
 #score
 def obstacle_dodged(count):
     font = pygame.font.SysFont(None, 25)
@@ -72,9 +88,10 @@ def game_loop():
 
     ob_startx = random.randrange(0, WIDTH)
     ob_starty = -600
-    ob_speed = 7
-    ob_width = 100
+    ob_speed = 5
+    obs = 0
     ob_height = 100
+    ob_width = 56
 
     obCount = 1
 
@@ -102,7 +119,7 @@ def game_loop():
         x += x_change
         screen.blit(background_image, [0, 0])
 
-        obstacles(ob_startx, ob_starty, ob_width, ob_height, white)
+        obstacles(ob_startx, ob_starty, obs)
         ob_starty += ob_speed
         player(x,y)
         obstacle_dodged(dodged)
@@ -112,7 +129,8 @@ def game_loop():
 
         if ob_starty > HEIGHT:
             ob_starty = 0 - ob_height
-            ob_startx = random.randrange(0,WIDTH)
+            ob_startx = random.randrange(0, WIDTH)
+            obs = random.randrange(0,7)
             dodged += 1
             ob_speed += 1
             ob_width += (dodged * 1.2)
