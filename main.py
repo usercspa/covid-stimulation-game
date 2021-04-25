@@ -80,6 +80,19 @@ def obstacle_dodged(count):
     text = font.render("Dodged: "+str(count), True, black)
     screen.blit(text,(350,50))    
 
+#risk text
+def risk_text(risk):
+    font = pygame.font.SysFont(None, 25)
+    text = font.render("Risk: "+str(count) + "%", True, black)
+    screen.blit(text,(350,50))
+
+#risk algorithm
+def risk_alg(risk):
+    while risk < 100:
+      caught = random.randrange(0,100)
+      if caught <= risk:
+        game_ending()
+
      
 #game loop    
 def game_loop():
@@ -100,6 +113,8 @@ def game_loop():
     ob_width = 56
 
     obCount = 1
+
+    risk_chance = 0
 
     dodged = 0
 
@@ -131,7 +146,9 @@ def game_loop():
         obstacle_dodged(dodged)
 
         if x > WIDTH - player_width or x < 0:
-            game_ending()
+            #game_ending()
+            risk_chance = risk_chance + random.randrange(5,20)
+            risk_alg(risk)
 
         if ob_starty > HEIGHT:
             ob_starty = 0 - ob_height
@@ -147,7 +164,9 @@ def game_loop():
             if x > ob_startx and x < ob_startx + ob_width or x+player_width > ob_startx and x + player_width < ob_startx+ob_width:
                 
           
-              game_ending()
+              #game_ending()
+              risk_chance = risk_chance + random.randrange(5,20)
+              risk_alg(risk)
 
         
         pygame.display.update()
