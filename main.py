@@ -11,7 +11,7 @@ WIDTH = 800
 HEIGHT = 600
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("COVID stimulation game")
+pygame.display.set_caption("Covid stimulation game")
 clock = pygame.time.Clock()
 
 #colors
@@ -74,29 +74,11 @@ def obstacles(ob_startx, ob_starty, obs):
     elif obs==10:
       ob_pic=pygame.image.load("single-2.png")             
     screen.blit(ob_pic, (ob_startx, ob_starty))
-
 #score
 def obstacle_dodged(count):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Dodged: "+str(count), True, black)
-    screen.blit(text,(200,50))    
-
-#risk algorithm
-def risk_alg(risk_chance):
-    if risk_chance < 100:
-      caught = random.randrange(0,100)
-      if caught <= risk_chance:
-        game_ending()
-      elif caught > risk_chance:
-        break
-    elif risk_chance >= 100:
-      game_ending()
-
-#risk text
-def risk_text(risk_chance):
-    font = pygame.font.SysFont(None, 25)
-    text = font.render("Risk: "+str(risk_chance) + "%", True, black)
-    screen.blit(text,(550,50))
+    screen.blit(text,(350,50))    
 
      
 #game loop    
@@ -118,8 +100,6 @@ def game_loop():
     ob_width = 56
 
     obCount = 1
-
-    risk_chance = 0
 
     dodged = 0
 
@@ -149,12 +129,9 @@ def game_loop():
         ob_starty += ob_speed
         player(x,y)
         obstacle_dodged(dodged)
-        risk_text(risk_chance)
 
         if x > WIDTH - player_width or x < 0:
-            #game_ending()
-            risk_chance += random.randrange(5,10)
-            risk_alg(risk_chance)
+            game_ending()
 
         if ob_starty > HEIGHT:
             ob_starty = 0 - ob_height
@@ -170,9 +147,7 @@ def game_loop():
             if x > ob_startx and x < ob_startx + ob_width or x+player_width > ob_startx and x + player_width < ob_startx+ob_width:
                 
           
-              #game_ending()
-              risk_chance += random.randrange(5,10)
-              risk_alg(risk_chance)
+              game_ending()
 
         
         pygame.display.update()
