@@ -74,17 +74,12 @@ def obstacles(ob_startx, ob_starty, obs):
     elif obs==10:
       ob_pic=pygame.image.load("single-2.png")             
     screen.blit(ob_pic, (ob_startx, ob_starty))
+
 #score
 def obstacle_dodged(count):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Dodged: "+str(count), True, black)
     screen.blit(text,(200,50))    
-
-#risk text
-def risk_text(risk_chance):
-    font = pygame.font.SysFont(None, 25)
-    text = font.render("Risk: "+str(risk_chance) + "%", True, black)
-    screen.blit(text,(550,50))
 
 #risk algorithm
 def risk_alg(risk_chance):
@@ -92,6 +87,12 @@ def risk_alg(risk_chance):
       caught = random.randrange(0,100)
       if caught <= risk_chance:
         game_ending()
+
+#risk text
+def risk_text(risk_chance):
+    font = pygame.font.SysFont(None, 25)
+    text = font.render("Risk: "+str(risk_chance) + "%", True, black)
+    screen.blit(text,(550,50))
 
      
 #game loop    
@@ -147,7 +148,7 @@ def game_loop():
 
         if x > WIDTH - player_width or x < 0:
             #game_ending()
-            risk_chance = risk_chance + random.randrange(5,15)
+            risk_chance += random.randrange(5,15)
             risk_alg(risk_chance)
 
         if ob_starty > HEIGHT:
@@ -165,7 +166,7 @@ def game_loop():
                 
           
               #game_ending()
-              risk_chance = risk_chance + random.randrange(5,15)
+              risk_chance += random.randrange(5,15)
               risk_alg(risk_chance)
 
         
