@@ -50,10 +50,9 @@ def game_loop():
 
     x_change = 0
       
-        pygame.display.update()
-        clock.tick(60)
+    pygame.display.update()
+    clock.tick(60)
 
 
 game_loop()
-pygame.quit()
-quit()      
+ 
