@@ -23,11 +23,13 @@ grey = (123,123,123)
 player_width = 56
 
 #load images
-human = pygame.image.load("human.png")
+human = pygame.image.load("player.gif")
 opening = pygame.image.load("opening.png")
 crashed = pygame.image.load("crash.png")
-risk = pygame.image.load("risk.png")
-rock = pygame.image.load("rock.png")
+paircovid1 = pygame.image.load("paircovid1.gif")
+paircovid2 = pygame.image.load("paircovid2.gif")
+single = pygame.image.load("single.gif")
+withmask = pygame.image.load("withmask.gif")
 
 #player position 
 def player(x,y):
