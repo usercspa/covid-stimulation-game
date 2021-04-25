@@ -78,13 +78,13 @@ def obstacles(ob_startx, ob_starty, obs):
 def obstacle_dodged(count):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Dodged: "+str(count), True, black)
-    screen.blit(text,(350,50))    
+    screen.blit(text,(200,50))    
 
 #risk text
 def risk_text(risk):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Risk: "+str(count) + "%", True, black)
-    screen.blit(text,(350,50))
+    screen.blit(text,(550,50))
 
 #risk algorithm
 def risk_alg(risk):
