@@ -67,6 +67,12 @@ def obstacles(ob_startx, ob_starty, obs):
       ob_pic=pygame.image.load("pair2-2.png")  
     elif obs==7:
       ob_pic=pygame.image.load("pair2-3.png") 
+    elif obs==8:
+      ob_pic=pygame.image.load("single.png")  
+    elif obs==9:
+      ob_pic=pygame.image.load("single-1.png") 
+    elif obs==10:
+      ob_pic=pygame.image.load("single-2.png")             
     screen.blit(ob_pic, (ob_startx, ob_starty))
 #score
 def obstacle_dodged(count):
@@ -130,7 +136,7 @@ def game_loop():
         if ob_starty > HEIGHT:
             ob_starty = 0 - ob_height
             ob_startx = random.randrange(0, WIDTH)
-            obs = random.randrange(0,7)
+            obs = random.randrange(0,10)
             dodged += 1
             ob_speed += 1
             ob_width += (dodged * 1.2)
