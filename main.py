@@ -11,7 +11,7 @@ WIDTH = 800
 HEIGHT = 600
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Covid stimulation game")
+pygame.display.set_caption("COVID stimulation game")
 clock = pygame.time.Clock()
 
 #colors
@@ -83,7 +83,7 @@ def obstacle_dodged(count):
 
 #risk algorithm
 def risk_alg(risk_chance):
-    while risk < 100:
+    while risk_chance < 100:
       caught = random.randrange(0,100)
       if caught <= risk_chance:
         game_ending()
@@ -148,7 +148,7 @@ def game_loop():
 
         if x > WIDTH - player_width or x < 0:
             #game_ending()
-            risk_chance += random.randrange(5,15)
+            risk_chance += random.randrange(5,10)
             risk_alg(risk_chance)
 
         if ob_starty > HEIGHT:
@@ -166,7 +166,7 @@ def game_loop():
                 
           
               #game_ending()
-              risk_chance += random.randrange(5,15)
+              risk_chance += random.randrange(5,10)
               risk_alg(risk_chance)
 
         
