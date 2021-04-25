@@ -25,3 +25,6 @@ player_width = 56
 #load images
 human = pygame.image.load("human.png")
 opening = pygame.image.load("opening.png")
+crashed = pygame.image.load("crash.png")
+risk = pygame.image.load("risk.png")
+rock = pygame.image.load("rock.png")
