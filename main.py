@@ -44,7 +44,7 @@ def game_ending():
     pygame.time.delay(500)
     screen.blit(crashed,(0,0))
     pygame.display.update()
-    pygame.time.delay(1000)
+    pygame.time.delay(1500)
     
   
 #obstacles
