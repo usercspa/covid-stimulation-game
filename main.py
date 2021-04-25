@@ -28,3 +28,31 @@ opening = pygame.image.load("opening.png")
 crashed = pygame.image.load("crash.png")
 risk = pygame.image.load("risk.png")
 rock = pygame.image.load("rock.png")
+
+#player position 
+def player(x,y):
+  screen.blit(human, (x, y))
+
+#start screen
+def game_opening():
+    screen.blit(opening,(0,0))
+    pygame.display.update()
+    time.sleep(1)    
+
+#game loop    
+def game_loop():
+
+    game_opening()
+
+
+    x = (WIDTH * 0.45)
+    y = (HEIGHT * 0.8)
+
+    x_change = 0
+      
+    pygame.display.update()
+    clock.tick(60)
+
+
+game_loop()
+ 
