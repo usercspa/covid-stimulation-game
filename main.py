@@ -22,3 +22,6 @@ grey = (123,123,123)
 
 player_width = 56
 
+#load images
+human = pygame.image.load("human.png")
+opening = pygame.image.load("opening.png")
