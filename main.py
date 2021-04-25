@@ -28,6 +28,7 @@ opening = pygame.image.load("opening.png")
 crashed = pygame.image.load("crash.png")
 risk = pygame.image.load("risk.png")
 rock = pygame.image.load("rock.png")
+background_image = pygame.image.load("street.png").convert()
 
 #player position 
 def player(x,y):
@@ -99,7 +100,7 @@ def game_loop():
                     x_change = 0
 
         x += x_change
-        screen.fill(grey)
+        screen.blit(background_image, [0, 0])
 
         obstacles(ob_startx, ob_starty, ob_width, ob_height, white)
         ob_starty += ob_speed
